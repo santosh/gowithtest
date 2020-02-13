@@ -17,3 +17,8 @@ type Rectangle struct {
 	Width  float64
 	Height float64
 }
+
+// Circle represent a circle with a Radius.
+type Circle struct {
+	Radius float64
+}
