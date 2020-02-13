@@ -35,7 +35,19 @@ func (c Circle) Area() float64 {
 	return math.Pi * c.Radius * c.Radius
 }
 
-// Shape interface
+// Triangle represents a triangle
+type Triangle struct {
+	Base   float64
+	Height float64
+}
+
+// Area implements area for a Triangle
+func (t Triangle) Area() float64 {
+	return (t.Base * t.Height) / 2
+}
+
+// Shape interface acts as a middleware. Adding new geometry (shape) is as easy as
+// implementing Area() of the shape.
 type Shape interface {
 	Area() float64
 }
