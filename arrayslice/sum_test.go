@@ -25,22 +25,22 @@ func ExampleSum() {
 	// Output: 3
 }
 
-func TestSumAll(t *testing.T) {
+func TestSumAllTails(t *testing.T) {
 	foo := []int{1, 2, 3}
 	bar := []int{5, 6}
 
-	got := SumAll(foo, bar)
-	want := []int{6, 11}
+	got := SumAllTails(foo, bar)
+	want := []int{5, 6}
 
 	if !reflect.DeepEqual(got, want) {
 		t.Errorf("got %d want %d", got, want)
 	}
 }
 
-func ExampleSumAll() {
+func ExampleSumAllTails() {
 	foo := []int{1, 2}
 	bar := []int{5, 6}
-	fmt.Println(SumAll(foo, bar))
+	fmt.Println(SumAllTails(foo, bar))
 
-	// Output: [3 11]
+	// Output: [2 6]
 }
