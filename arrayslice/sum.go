@@ -12,8 +12,13 @@ func Sum(arr []int) (result int) {
 // Each index representing sum of each slice except the first index (head).
 func SumAllTails(numToSum ...[]int) (sums []int) {
 	for _, numbers := range numToSum {
-		tail := numbers[1:]
-		sums = append(sums, Sum(tail))
+		if len(numbers) == 0 {
+			sums = append(sums, 0)
+		} else {
+			tail := numbers[1:]
+			sums = append(sums, Sum(tail))
+		}
+
 	}
 	return sums
 }
