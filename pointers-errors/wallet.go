@@ -2,8 +2,11 @@
 package wallet
 
 import (
+	"errors"
 	"fmt"
 )
+
+var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds")
 
 // Bitcoin represents a bitcoin currency, underlaying datatype is int
 type Bitcoin int
@@ -19,7 +22,13 @@ func (w *Wallet) Deposit(amount Bitcoin) {
 }
 
 // Withdraw subtracts balance from receiver.balance.
+// If available balance is less than amount being withdrawn,
+// an error is thrown.
 func (w *Wallet) Withdraw(amount Bitcoin) error {
+	if w.balance < amount {
+		return ErrInsufficientFunds
+	}
+
 	w.balance -= amount
 	return nil
 }
