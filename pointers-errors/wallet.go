@@ -6,6 +6,7 @@ import (
 	"fmt"
 )
 
+// ErrInsufficientFunds is an error; pretty self explanatory
 var ErrInsufficientFunds = errors.New("cannot withdraw, insufficient funds")
 
 // Bitcoin represents a bitcoin currency, underlaying datatype is int
