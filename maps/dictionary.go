@@ -3,18 +3,24 @@
 // In this module we build a dictionay.
 package maps
 
-import "errors"
-
-var (
+const (
 	// ErrNotFound should be raised in case there is no word in dictionary
-	ErrNotFound = errors.New("could not find the word you were looking for")
+	ErrNotFound = DictionaryErr("could not find the word you were looking for")
 	// ErrWordExists should be raised when adding a new entry to dictionary
 	// and entry already exists
-	ErrWordExists = errors.New("cannot add the word because it already exists")
+	ErrWordExists = DictionaryErr("cannot add the word because it already exists")
 )
 
 // Dictionary represent a map of word and meaning
 type Dictionary map[string]string
+
+// DictionaryErr and subsequent func definition fulfills error interface
+type DictionaryErr string
+
+// Error implements error interface
+func (e DictionaryErr) Error() string {
+	return string(e)
+}
 
 // Search iterates over a map to find word, then returns it's value,
 // which is represent the meaning
