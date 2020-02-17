@@ -5,8 +5,13 @@ package maps
 
 import "errors"
 
-// ErrNotFound should be raised in case there is no word in dictionary
-var ErrNotFound = errors.New("could not find the word you were looking for")
+var (
+	// ErrNotFound should be raised in case there is no word in dictionary
+	ErrNotFound = errors.New("could not find the word you were looking for")
+	// ErrWordExists should be raised when adding a new entry to dictionary
+	// and entry already exists
+	ErrWordExists = errors.New("cannot add the word because it already exists")
+)
 
 // Dictionary represent a map of word and meaning
 type Dictionary map[string]string
@@ -22,6 +27,11 @@ func (d Dictionary) Search(word string) (string, error) {
 }
 
 // Add inserts a word and a meaning to the caller.
-func (d Dictionary) Add(word, meaning string) {
+func (d Dictionary) Add(word, meaning string) error {
+	_, ok := d[word]
+	if ok {
+		return ErrWordExists
+	}
 	d[word] = meaning
+	return nil
 }
