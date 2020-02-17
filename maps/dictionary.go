@@ -58,3 +58,15 @@ func (d Dictionary) Update(word, meaning string) error {
 
 	return ErrWordNotExists
 }
+
+// Delete delete word-meaning pair, given the word (key).
+// If there is no word already, it doesn't adds.
+func (d Dictionary) Delete(word string) error {
+	_, ok := d[word]
+	if ok {
+		delete(d, word)
+		return nil
+	}
+
+	return ErrWordNotExists
+}
