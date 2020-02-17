@@ -5,10 +5,15 @@ package maps
 
 const (
 	// ErrNotFound should be raised in case there is no word in dictionary
-	ErrNotFound = DictionaryErr("could not find the word you were looking for")
+	ErrNotFound = DictionaryErr("cannot find the word you were looking for")
+
 	// ErrWordExists should be raised when adding a new entry to dictionary
 	// and entry already exists
 	ErrWordExists = DictionaryErr("cannot add the word because it already exists")
+
+	// ErrWordNotExists is typically raised when trying to Update existing
+	// definitions.
+	ErrWordNotExists = DictionaryErr("cannot update the word because it doesn't exists")
 )
 
 // Dictionary represent a map of word and meaning
@@ -40,4 +45,16 @@ func (d Dictionary) Add(word, meaning string) error {
 	}
 	d[word] = meaning
 	return nil
+}
+
+// Update updates the value of given word (key).
+// If there is no word already, it doesn't adds.
+func (d Dictionary) Update(word, meaning string) error {
+	_, ok := d[word]
+	if ok {
+		d[word] = meaning
+		return nil
+	}
+
+	return ErrWordNotExists
 }
