@@ -43,19 +43,26 @@ func TestWalk(t *testing.T) {
 			},
 			[]string{"Santosh", "Pune"},
 		},
-		{"slices",
+		{"using slices",
 			[]Profile{
 				{23, "Pune"},
 				{26, "Bengaluru"},
 			},
 			[]string{"Pune", "Bengaluru"},
 		},
-		{"arrays",
+		{"using arrays",
 			[2]Profile{
 				{23, "Pune"},
 				{26, "Bengaluru"},
 			},
 			[]string{"Pune", "Bengaluru"},
+		},
+		{"using maps",
+			map[string]string{
+				"Foo": "Bar",
+				"Baz": "Boz",
+			},
+			[]string{"Bar", "Boz"},
 		},
 	}
 
