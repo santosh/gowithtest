@@ -11,7 +11,20 @@ func TestWalk(t *testing.T) {
 		Input         interface{}
 		ExpectedCalls []string
 	}{
-		{"Struct with one string field",
+		{"struct with one string field",
+			struct {
+				Name string
+			}{"Santosh"},
+			[]string{"Santosh"},
+		},
+		{"struct with two string field",
+			struct {
+				Name string
+				City string
+			}{"Santosh", "Pune"},
+			[]string{"Santosh", "Pune"},
+		},
+		{"struct with non string field",
 			struct {
 				Name string
 				Age  int
