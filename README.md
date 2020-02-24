@@ -28,7 +28,7 @@ Following is a map of Chapter name and what topics they cover.
 
 - **Reflection**: Go's internal datatypes.
 
-- ...:
+- **Sync**: Supplement to concurrency. WaitGroups, Mutexes. A WaitGroup waits for a collection of goroutines to finish.
 
 - ...:
 
