@@ -28,7 +28,7 @@ Following is a map of Chapter name and what topics they cover.
 
 - **Reflection**: Go's internal datatypes.
 
-- **Sync**: Supplement to concurrency. WaitGroups, Mutexes. A WaitGroup waits for a collection of goroutines to finish.
+- **Sync**: Supplement to concurrency. WaitGroups, Mutexes. A WaitGroup waits for a collection of goroutines to finish. A Mutex is a mutual exclusion lock. The zero value for a Mutex is an unlocked mutex.
 
 - ...:
 
