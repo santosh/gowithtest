@@ -21,3 +21,8 @@ func (c *Counter) Inc() {
 func (c *Counter) Value() int {
 	return c.value
 }
+
+// NewCounter returns pointer to new Counter
+func NewCounter() *Counter {
+	return &Counter{}
+}
