@@ -30,11 +30,6 @@ Following is a map of Chapter name and what topics they cover.
 
 - **Sync**: Supplement to concurrency. WaitGroups, Mutexes. A WaitGroup waits for a collection of goroutines to finish. A Mutex is a mutual exclusion lock. The zero value for a Mutex is an unlocked mutex.
 
-- ...:
-
-- ...:
-
-- ...:
-
+- **Context**: 
 
 The book can be found at https://quii.gitbook.io/learn-go-with-tests/. If that link is dead, head over to wayback machine https://web.archive.org/web/20200110162028/https://quii.gitbook.io/learn-go-with-tests/
